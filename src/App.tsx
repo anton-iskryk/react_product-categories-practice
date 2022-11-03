@@ -27,7 +27,7 @@ export const App: React.FC = () => {
   const [selectedUser, setSelectedUser] = useState('');
   const [search, setSearch] = useState('');
 
-  const filtredProducts = products.filter(product => {
+  const productsFilter = products.filter(product => {
     if (selectedUser === '') {
       return product;
     }
@@ -172,7 +172,7 @@ export const App: React.FC = () => {
         </div>
 
         <div className="box table-container">
-          {!filtredProducts.length
+          {!productsFilter.length
             ? (
               <p data-cy="NoMatchingMessage">
                 No products matching selected criteria
@@ -237,7 +237,7 @@ export const App: React.FC = () => {
                   </tr>
                 </thead>
 
-                {filtredProducts.map(product => (
+                {productsFilter.map(product => (
                   <tr data-cy="Product" key={product.id}>
                     <td className="has-text-weight-bold" data-cy="ProductId">
                       {product.id}
